@@ -50,7 +50,14 @@ module MultiTerm
       app = Osaka::Terminal.new
       app.activate
       for tab_config in configuration[:tabs]
-        app.new_tab({:directory => configuration[:root]}.merge(tab_config))
+        tab_config = {
+          :directory => configuration[:root]
+        }.merge(tab_config)
+        tab_config[:directory] = File.realdirpath(
+          tab_config[:directory],
+          (configuration[:root] || File.expand_path('.'))
+        )
+        app.new_tab(tab_config)
       end
     else
       puts "Missing '.multiterm.yml' configuration."
