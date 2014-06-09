@@ -59,7 +59,7 @@ namespace :gem do
 
   desc "Install the gem"
   task :install => ["clobber", "gem:package"] do
-    sh "#{SUDO} gem install --local pkg/#{GEM_SPEC.full_name}"
+    sh "gem install pkg/#{GEM_SPEC.full_name}.gem"
   end
 
   desc "Uninstall the gem"

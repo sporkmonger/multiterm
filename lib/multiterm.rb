@@ -37,6 +37,7 @@ module MultiTerm
     while search_path != '/' && search_path != home_path
       if File.exists?(File.join(search_path, '.multiterm.yml'))
         settings = YAML.load(File.read(File.join(search_path, '.multiterm.yml')))
+        settings[:root] = File.expand_path(search_path)
         return settings if settings
       end
       search_path = File.expand_path(File.join(search_path, '..'))
@@ -49,10 +50,7 @@ module MultiTerm
       app = Osaka::Terminal.new
       app.activate
       for tab_config in configuration[:tabs]
-        app.new_tab(
-          script: tab_config[:script],
-          name: tab_config[:name]
-        )
+        app.new_tab({:directory => configuration[:root]}.merge(tab_config))
       end
     else
       puts "Missing '.multiterm.yml' configuration."
