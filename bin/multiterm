@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+bin_dir = File.expand_path(File.dirname(__FILE__))
+lib_dir = File.expand_path(File.join(bin_dir, '../lib'))
+$:.unshift(lib_dir)
+$:.uniq!
+
+require 'rubygems'
+require 'osaka'
+require 'yaml'
+require 'multiterm'
+
+MultiTerm.execute

@@ -1,0 +1,13 @@
+._*
+.DS_Store
+.yardoc
+.bundle
+.multiterm.yml
+Gemfile.lock
+coverage
+doc
+heckling
+pkg
+specdoc
+wiki
+/.idea
