@@ -23,6 +23,7 @@ namespace :gem do
     s.add_development_dependency("launchy", ">= 0.3.2")
 
     s.require_path = "lib"
+    s.executables << 'multiterm'
 
     s.author = "Bob Aman"
     s.email = "bob@sporkmonger.com"
