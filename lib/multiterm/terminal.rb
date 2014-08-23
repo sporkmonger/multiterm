@@ -6,11 +6,11 @@ module Osaka
       super "Terminal"
     end
 
-    def new_tab(options={})
+    def tab_configure(options={})
       tab_name = options[:name]
       script = options[:script]
       directory = options[:directory]
-      control.keystroke('t', :command)
+      control.keystroke('t', :command) if options[:new_tab]
       if directory != nil
         control.tell('do script "cd \'' + directory + '\'" in front window')
       end

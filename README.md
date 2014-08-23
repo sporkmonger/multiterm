@@ -11,13 +11,24 @@
 
 MultiTerm is a rudimentary terminal multiplexer for OS X that uses the built-in Terminal.app tabs.
 
-# Features
-
-* A feature list goes here.
-
 # Example Usage
 
-    # Some code goes here.
+    # .multiterm.yml
+    ---
+    :parent:
+      :name: Main
+    :tabs:
+    - :name: Server
+      :script: bundle exec rails s
+    - :name: Sidekiq
+      :script: bundle exec sidekiq -q default
+    - :name: Chef
+      :directory: ../chef-cookbooks
+    - :name: SSH
+      :script: echo "ssh ubuntu@1.2.3.4"
+
+    # shell
+    multiterm
 
 # Install
 
