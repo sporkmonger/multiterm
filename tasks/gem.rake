@@ -18,6 +18,8 @@ namespace :gem do
       exit(1)
     end
 
+    s.add_dependency("osaka", "~> 0.4", ">= 0.4.8")
+
     s.add_development_dependency("rake", ">= 0.7.3")
     s.add_development_dependency("rspec", ">= 2.9.0")
     s.add_development_dependency("launchy", ">= 0.3.2")
